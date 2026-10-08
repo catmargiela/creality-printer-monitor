@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0d12">
+  <title>Printer Monitor</title>
+  <link rel="stylesheet" href="/static/style.css?v=10">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" class="logo" aria-hidden="true"><path d="M4 20h16M6 20V9l6-5 6 5v11M9 20v-6h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span>Printer Monitor</span>
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#" data-view="printers">Printers</a>
+      <a href="#history" data-view="history">History</a>
+      <a href="#wall" data-view="wall">Wall</a>
+      <a href="#settings" data-view="settings">Settings</a>
+    </nav>
+    <div id="summary" class="summary"></div>
+    <div class="topbar-right">
+      <span id="link" class="link" title="Server connection"><span class="dot"></span><span class="link-label">Offline</span></span>
+      <button id="send-btn" class="btn">Send a file</button>
+      <button id="add-btn" class="btn primary">+ Printer</button>
+    </div>
+  </header>
+
+  <main id="grid" class="grid view" data-view="printers"></main>
+
+  <!-- History & statistics -->
+  <section id="view-history" class="view page" data-view="history" hidden>
+    <div class="page-head">
+      <h1>History</h1>
+      <div class="filters">
+        <select id="h-printer"><option value="">All printers</option></select>
+        <select id="h-status">
+          <option value="">All statuses</option>
+          <option value="completed">Completed</option>
+          <option value="failed">Failed</option>
+          <option value="stopped">Stopped</option>
+          <option value="running">Running</option>
+        </select>
+      </div>
+    </div>
+    <div id="h-tiles" class="tiles"></div>
+    <div class="card">
+      <div class="card-head">
+        <h3>By month</h3>
+        <div class="seg compact" id="h-metric" role="radiogroup" aria-label="Displayed metric">
+          <label><input type="radio" name="metric" value="cost" checked><span>Cost</span></label>
+          <label><input type="radio" name="metric" value="hours"><span>Hours</span></label>
+          <label><input type="radio" name="metric" value="grams"><span>Filament</span></label>
+          <label><input type="radio" name="metric" value="prints"><span>Prints</span></label>
+        </div>
+      </div>
+      <div id="h-chart" class="bars"></div>
+    </div>
+    <div class="card">
+      <h3>By printer</h3>
+      <div class="table-wrap"><table id="h-printers" class="table"></table></div>
+    </div>
+    <div class="card">
+      <h3>Prints</h3>
+      <div id="h-list" class="hist-list"></div>
+    </div>
+  </section>
+
+  <!-- Settings -->
+  <section id="view-settings" class="view page" data-view="settings" hidden>
+    <div class="page-head"><h1>Settings</h1></div>
+    <div class="settings-grid">
+      <div class="card">
+        <h3>Filament prices</h3>
+        <p class="muted small">Used to compute the cost of each print. Density converts the length used into grams.</p>
+        <table class="table" id="s-filaments"></table>
+        <div class="row wrap">
+          <button class="btn sm ghost" id="s-fil-add">+ Add filament</button>
+          <span class="spacer"></span>
+          <label class="inline">Default <select id="s-fil-default"></select></label>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Electricity</h3>
+        <div class="form-grid">
+          <label>Price per kWh (€) <input type="number" step="0.01" min="0" id="s-kwh"></label>
+          <label>Average power draw while printing (W) <input type="number" step="10" min="0" id="s-watts"></label>
+        </div>
+        <p class="muted small">A Creality Hi draws about 100–200 W while printing (heated bed).</p>
+      </div>
+      <div class="card">
+        <h3>Maintenance</h3>
+        <p class="muted small">Reminders counted in print hours, per printer.</p>
+        <div id="s-maint" class="maint-edit"></div>
+        <button class="btn sm ghost" id="s-maint-add">+ Add task</button>
+      </div>
+      <div class="card">
+        <h3>Smart plugs</h3>
+        <p class="muted small">Shelly or Tasmota, local access. Auto power-off waits for the nozzle to cool down and is cancelled if a print starts again.</p>
+        <div id="s-plugs" class="plugs-edit"></div>
+      </div>
+      <div class="card">
+        <h3>Slicing (OrcaSlicer)</h3>
+        <div id="s-slicer"></div>
+      </div>
+    </div>
+    <div class="savebar"><span id="s-dirty" class="muted"></span><button class="btn primary" id="s-save">Save</button></div>
+  </section>
+
+  <!-- Wall mode -->
+  <section id="view-wall" class="wall" data-view="wall" hidden>
+    <div class="wall-head">
+      <div id="wall-next" class="wall-next"></div>
+      <div class="wall-clock" id="wall-clock"></div>
+      <button class="btn ghost sm" id="wall-full">Full screen</button>
+      <a class="btn ghost sm" href="#">Exit</a>
+    </div>
+    <div id="wall-grid" class="wall-grid"></div>
+  </section>
+
+  <!-- Detail view -->
+  <div id="detail" class="overlay" hidden>
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="d-name">
+      <div class="panel-head">
+        <img id="d-model-img" class="model-img" alt="">
+        <div class="head-text">
+          <h2 id="d-name"></h2>
+          <div class="sub"><span id="d-model"></span> · <span id="d-host"></span></div>
+        </div>
+        <span id="d-state" class="pill"></span>
+        <div class="head-actions">
+          <button class="btn ghost sm" id="d-edit">Edit</button>
+          <button class="btn ghost sm" id="d-remove" title="Remove this printer from the list">Remove</button>
+          <button class="btn ghost icon" id="d-close" aria-label="Close">✕</button>
+        </div>
+      </div>
+
+      <div id="d-alert" class="alert" hidden>
+        <div class="alert-icon" aria-hidden="true">!</div>
+        <div class="alert-text">
+          <strong id="d-alert-title"></strong>
+          <span id="d-alert-advice"></span>
+          <small id="d-alert-code"></small>
+        </div>
+        <div class="alert-actions" id="d-alert-actions"></div>
+      </div>
+
+      <div class="panel-body">
+        <section class="col-main">
+          <div class="card cam-card">
+            <div class="cam big"><img id="d-cam" alt="Camera"><span class="cam-off">Camera…</span></div>
+            <div class="cambar">
+              <span class="camstate"><span id="cam-dot" class="dot"></span> <span id="cam-status">—</span></span>
+              <span class="camactions">
+                <button class="btn sm ghost" id="cam-reset" title="Close the server's camera connection and reconnect immediately">Reset camera</button>
+                <button class="btn sm ghost" id="d-reboot" title="Via Moonraker (does not work on the Hi)">Reboot</button>
+              </span>
+            </div>
+          </div>
+
+          <div class="card job-card">
+            <div class="job-top">
+              <div class="job-thumb"><img id="d-thumb" alt=""><span class="thumb-ph" aria-hidden="true"></span></div>
+              <div class="job-info">
+                <div class="label">Print</div>
+                <div id="d-file" class="job-file">No print in progress</div>
+                <div id="d-eta" class="job-eta"></div>
+              </div>
+              <div class="ring" id="d-ring">
+                <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" id="d-ring-fg" cx="60" cy="60" r="52"/></svg>
+                <div class="ring-label"><span id="d-pct">—</span><small>%</small></div>
+              </div>
+            </div>
+            <div class="stats">
+              <div><span class="label">Layer</span><b id="d-layer">—</b></div>
+              <div><span class="label">Elapsed</span><b id="d-elapsed">—</b></div>
+              <div><span class="label">Remaining</span><b id="d-left">—</b></div>
+              <div><span class="label">Speed</span><b id="d-speed">—</b></div>
+              <div><span class="label">Flow</span><b id="d-flow">—</b></div>
+              <div><span class="label">Filament used</span><b id="d-used">—</b></div>
+            </div>
+            <div class="row">
+              <button class="btn" id="d-pause">Pause</button>
+              <button class="btn danger" id="d-stop">Stop</button>
+              <span class="spacer"></span>
+              <button class="btn ghost" id="d-light" aria-pressed="false"><span class="bulb" aria-hidden="true"></span> Light</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <h3>Temperatures</h3>
+              <div class="legend"><span class="lg noz">Nozzle</span><span class="lg bed">Bed</span><span class="lg tgt">Target</span></div>
+            </div>
+            <div class="temps-now">
+              <div class="tnow noz"><span class="label">Nozzle</span><b id="d-noz">—</b><small id="d-noz-t"></small></div>
+              <div class="tnow bed"><span class="label">Bed</span><b id="d-bed">—</b><small id="d-bed-t"></small></div>
+            </div>
+            <div class="chart-wrap">
+              <svg id="chart" class="chart" viewBox="0 0 600 160" preserveAspectRatio="none" role="img" aria-label="Temperatures over the last 30 minutes"></svg>
+              <div id="chart-labels" class="chart-labels"></div>
+            </div>
+            <div class="chart-axis"><span>−30 min</span><span>−15 min</span><span>now</span></div>
+            <div class="temp-controls">
+              <label>Nozzle <input type="number" id="t-noz" min="0" max="350" placeholder="°C" inputmode="numeric"></label>
+              <label>Bed <input type="number" id="t-bed" min="0" max="120" placeholder="°C" inputmode="numeric"></label>
+              <button class="btn sm" id="t-apply">Apply</button>
+              <span class="spacer"></span>
+              <button class="btn sm ghost" data-preset="210,60">PLA</button>
+              <button class="btn sm ghost" data-preset="240,75">PETG</button>
+              <button class="btn sm ghost" data-preset="0,0">Cool down</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Recent prints</h3><a href="#history" class="small">View all</a></div>
+            <div id="d-history" class="hist-list compact"></div>
+          </div>
+
+          <div class="card files-card">
+            <div class="card-head">
+              <h3>Library</h3>
+              <input id="files-search" class="search" type="search" placeholder="Search…">
+              <button class="btn sm ghost icon" id="files-refresh" title="Refresh" aria-label="Refresh">↻</button>
+            </div>
+            <label id="drop" class="drop">
+              <input id="file-input" type="file" accept=".gcode,.stl,.3mf,.obj,.step,.stp" multiple hidden>
+              <span class="drop-title">Drop a file here or click to upload</span>
+              <span class="drop-sub">.gcode ready to print<span id="drop-slice"></span></span>
+            </label>
+            <div class="row wrap upload-opts">
+              <label class="check"><input type="checkbox" id="up-start" checked> Start printing after upload</label>
+            </div>
+            <div id="jobs"></div>
+            <div id="files" class="files"></div>
+          </div>
+        </section>
+
+        <section class="col-side">
+          <div class="card">
+            <h3>Filament</h3>
+            <div id="d-filament" class="filament"><span class="muted">—</span></div>
+          </div>
+
+          <div class="card">
+            <h3>Fans &amp; speed</h3>
+            <label class="slider">Part <input type="range" min="0" max="100" step="5" data-fan="0"><output>—</output></label>
+            <label class="slider">Chamber <input type="range" min="0" max="100" step="5" data-fan="1"><output>—</output></label>
+            <label class="slider">Side <input type="range" min="0" max="100" step="5" data-fan="2"><output>—</output></label>
+            <label class="slider">Speed <input type="range" min="50" max="200" step="10" id="speed"><output id="speed-out">—</output></label>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Movement</h3><small id="pos" class="pos"></small></div>
+            <div class="seg" role="radiogroup" aria-label="Step">
+              <label><input type="radio" name="step" value="0.1"><span>0.1</span></label>
+              <label><input type="radio" name="step" value="1"><span>1</span></label>
+              <label><input type="radio" name="step" value="10" checked><span>10</span></label>
+              <label><input type="radio" name="step" value="50"><span>50 mm</span></label>
+            </div>
+            <div class="jog">
+              <div class="pad">
+                <span></span><button class="btn" data-jog="Y,1">Y+</button><span></span>
+                <button class="btn" data-jog="X,-1">X−</button><button class="btn ghost" data-home="X Y" title="Home X/Y">⌂</button><button class="btn" data-jog="X,1">X+</button>
+                <span></span><button class="btn" data-jog="Y,-1">Y−</button><span></span>
+              </div>
+              <div class="zpad">
+                <button class="btn" data-jog="Z,1">Z+</button>
+                <button class="btn ghost" data-home="Z" title="Home Z">⌂</button>
+                <button class="btn" data-jog="Z,-1">Z−</button>
+              </div>
+            </div>
+            <button class="btn wide ghost" data-home="X Y Z">Home all (G28)</button>
+            <p id="jog-note" class="muted small" hidden>Movement is disabled while printing.</p>
+          </div>
+
+          <div class="card" id="d-plug-card" hidden>
+            <div class="card-head"><h3>Smart plug</h3><span id="d-plug-state" class="pill"></span></div>
+            <p id="d-plug-msg" class="muted small"></p>
+            <div class="row">
+              <button class="btn sm" id="d-plug-on">Turn on</button>
+              <button class="btn sm ghost" id="d-plug-off">Turn off</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Maintenance</h3><small id="d-hours" class="muted"></small></div>
+            <div id="d-maint" class="maint"></div>
+          </div>
+
+          <div class="card">
+            <h3>G-code console</h3>
+            <form id="gcode-form" class="row">
+              <input id="gcode" placeholder="e.g. M104 S200" autocomplete="off" spellcheck="false">
+              <button class="btn">Send</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <dialog id="add-dlg">
+    <form method="dialog" id="add-form">
+      <h3>Add a printer</h3>
+      <div class="discover">
+        <button type="button" class="btn wide" id="discover-btn">Scan the network</button>
+        <div id="discover-list" class="discover-list"></div>
+      </div>
+      <div class="or"><span>or manually</span></div>
+      <label>Name <input name="name" placeholder="Workshop Hi"></label>
+      <label>IP address <input name="host" placeholder="192.168.1.14"></label>
+      <p class="muted small">The address is shown on the printer's screen, under Settings → Network.</p>
+      <div class="row end">
+        <button class="btn ghost" value="cancel" formnovalidate>Close</button>
+        <button class="btn primary" value="ok">Add</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="edit-dlg">
+    <form method="dialog" id="edit-form">
+      <h3>Edit printer</h3>
+      <label>Name <input name="name" required></label>
+      <label>IP address <input name="host" required></label>
+      <p class="muted small" id="edit-mac"></p>
+      <div class="row end">
+        <button class="btn ghost" value="cancel" formnovalidate>Cancel</button>
+        <button class="btn primary" value="ok">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="send-dlg" class="wide-dlg">
+    <div class="send">
+      <div class="send-head">
+        <h3>Send a file</h3>
+        <button class="btn ghost icon" id="send-close" aria-label="Close">✕</button>
+      </div>
+      <div class="send-body">
+        <div class="send-preview">
+          <div id="send-viewer" class="viewer-box"><div class="viewer-empty">
+            <label class="drop big" id="send-drop">
+              <input type="file" id="send-file" accept=".gcode,.stl,.3mf,.obj,.step,.stp" hidden>
+              <span class="drop-title">Drop an .stl, .3mf or .gcode</span>
+              <span class="drop-sub">or click to choose a file</span>
+            </label>
+          </div></div>
+          <div id="send-meta" class="send-meta"></div>
+        </div>
+        <div class="send-side">
+          <div id="send-slice" class="send-section" hidden>
+            <h4>Slicing</h4>
+            <div id="send-slice-missing" class="muted small" hidden></div>
+            <label>Printer (profile) <select id="send-model"></select></label>
+            <label>Quality <select id="send-process"></select></label>
+            <label>Filament <select id="send-filament"></select></label>
+            <button class="btn primary wide" id="send-slice-btn">Slice</button>
+          </div>
+          <div class="send-section">
+            <h4>Printers</h4>
+            <div id="send-printers" class="send-printers"></div>
+            <label class="check"><input type="checkbox" id="send-start" checked> Start printing</label>
+          </div>
+          <div id="send-status" class="send-status"></div>
+          <button class="btn primary wide" id="send-go" disabled>Send</button>
+          <button class="btn ghost wide" id="send-reset" hidden>Another file</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <link rel="stylesheet" href="/static/viewer.css?v=1">
+  <script type="module" src="/static/viewer.js?v=1"></script>
+  <script src="/static/app.js?v=8"></script>
+  <script src="/static/views.js?v=1"></script>
+  <script src="/static/send.js?v=2"></script>
+</body>
+</html>

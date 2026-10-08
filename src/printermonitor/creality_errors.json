@@ -1,0 +1,1290 @@
+{
+"0": {
+"en": "An unknown error was detected in printing",
+"level": null
+},
+"1": {
+"en": "Motor drive abnormality",
+"level": 2
+},
+"2": {
+"en": "internal error",
+"level": 2
+},
+"3": {
+"en": "Communication abnormality",
+"level": 2
+},
+"4": {
+"en": "Not heating as expected",
+"level": 2
+},
+"6": {
+"en": "Extruder abnormality",
+"level": 2
+},
+"7": {
+"en": "Print file coordinates are abnormal",
+"level": 2
+},
+"9": {
+"en": "Chatter optimization sensor abnormality",
+"level": 2
+},
+"10": {
+"en": "Fan abnormality",
+"level": 2
+},
+"100": {
+"en": "An unknown error was detected in printing",
+"level": 2
+},
+"101": {
+"en": "A print quality issue has been detected and printing has been paused",
+"level": 1
+},
+"103": {
+"en": "Unknown error",
+"level": 1
+},
+"104": {
+"en": "Foreign object detected on the printing platform, printing paused",
+"level": 1
+},
+"105": {
+"en": "Unknown error",
+"level": null
+},
+"106": {
+"en": "Unknown error",
+"level": null
+},
+"107": {
+"en": "Unknown error",
+"level": null
+},
+"108": {
+"en": "Unknown error",
+"level": null
+},
+"109": {
+"en": "Abnormal heat break fan",
+"level": 2
+},
+"110": {
+"en": "Motherboard Connection Failure",
+"level": 2
+},
+"111": {
+"en": "Nozzle connection abnormal",
+"level": 2
+},
+"112": {
+"en": "Hotbed Connection Abnormal",
+"level": 2
+},
+"113": {
+"en": "Unknown error",
+"level": null
+},
+"114": {
+"en": "CrealityCloud G-code download exception.",
+"level": 1
+},
+"115": {
+"en": "Detected unfinished task, do you wish to continue printing",
+"level": 1
+},
+"116": {
+"en": "Filament runout, printing paused, please refill",
+"level": 3
+},
+"117": {
+"en": "A model warping issue has been detected，printing has been paused",
+"level": 1
+},
+"118": {
+"en": "Unknown error",
+"level": null
+},
+"119": {
+"en": "Detected waste chute is block. Please clean it up and try again.",
+"level": 1
+},
+"120": {
+"en": "Belt tension abnormal. Please rerun the Input Shaping before using the printer.",
+"level": 1
+},
+"121": {
+"en": "FR2357: CFS filament in use. To print with spool holder, unload CFS filament and reload spool holder before printing.",
+"level": 1
+},
+"122": {
+"en": "FR2358: Spool holder filament in use. To print with CFS, unload spool holder filament and reload CFS filament before printing.",
+"level": 1
+},
+"123": {
+"en": "Detected printing plate is missing, printing paused",
+"level": 2
+},
+"124": {
+"en": "Detected printing plate is missing and foreign object on the printing plate, printing paused",
+"level": 2
+},
+"125": {
+"en": "The current version doesn't support T command desassembled G-code files. Please upgrade the firmware.",
+"level": 1
+},
+"126": {
+"en": "Unknown error",
+"level": null
+},
+"127": {
+"en": "Unknown error",
+"level": null
+},
+"128": {
+"en": "Unknown error",
+"level": null
+},
+"129": {
+"en": "Unknown error",
+"level": null
+},
+"201": {
+"en": "Abnormal temperature of the temperature chamber",
+"level": 2
+},
+"202": {
+"en": "Unknown error",
+"level": null
+},
+"203": {
+"en": "Unknown error",
+"level": null
+},
+"204": {
+"en": "Fan abnormality",
+"level": 2
+},
+"205": {
+"en": "network anomaly",
+"level": 2
+},
+"206": {
+"en": "AI detected print quality issues",
+"level": 2
+},
+"207": {
+"en": "z-Touch abnormality",
+"level": 2
+},
+"208": {
+"en": "File anomaly",
+"level": 2
+},
+"209": {
+"en": "Abnormal hot bed temperature",
+"level": 2
+},
+"210": {
+"en": "Unknown error",
+"level": null
+},
+"211": {
+"en": "Unknown error",
+"level": null
+},
+"212": {
+"en": "Unknown error",
+"level": null
+},
+"213": {
+"en": "Unknown error",
+"level": null
+},
+"214": {
+"en": "Unknown error",
+"level": null
+},
+"215": {
+"en": "Unknown error",
+"level": null
+},
+"216": {
+"en": "Unknown error",
+"level": null
+},
+"217": {
+"en": "Unknown error",
+"level": null
+},
+"218": {
+"en": "Unknown error",
+"level": null
+},
+"219": {
+"en": "Unknown error",
+"level": null
+},
+"220": {
+"en": "Unknown error",
+"level": null
+},
+"221": {
+"en": "Unknown error",
+"level": null
+},
+"222": {
+"en": "Unknown error",
+"level": null
+},
+"223": {
+"en": "Unknown error",
+"level": null
+},
+"224": {
+"en": "Unknown error",
+"level": null
+},
+"225": {
+"en": "Unknown error",
+"level": null
+},
+"226": {
+"en": "Unknown error",
+"level": null
+},
+"227": {
+"en": "Unknown error",
+"level": null
+},
+"228": {
+"en": "Unknown error",
+"level": null
+},
+"229": {
+"en": "Unknown error",
+"level": null
+},
+"500": {
+"en": "Printing quality issues detected by AI",
+"level": 2
+},
+"501": {
+"en": "TF0501: Heat break fan speed detected to be too low.",
+"level": 2
+},
+"502": {
+"en": "Mainboard fan exception",
+"level": 2
+},
+"503": {
+"en": "Detected a issue with the print quality of the first layer",
+"level": 2
+},
+"504": {
+"en": "Current file does not support flow detection",
+"level": 2
+},
+"505": {
+"en": "AI LiDAR anomaly",
+"level": 2
+},
+"506": {
+"en": "AI LiDAR calibration failure",
+"level": 2
+},
+"507": {
+"en": "AI LiDAR alignment failure",
+"level": 2
+},
+"508": {
+"en": "Current storage space usage has reached {0}, please clean up in time",
+"level": 2
+},
+"509": {
+"en": "Chamber temp too high, camera off. It'll auto-on when temp normalizes",
+"level": 2
+},
+"510": {
+"en": "Camera failed to start, try restarting",
+"level": 2
+},
+"511": {
+"en": "Current file does not support flow ratio calibration, printing with default values.",
+"level": 2
+},
+"512": {
+"en": "Current filament does not support flow ratio calibration, printing with default values.",
+"level": 2
+},
+"513": {
+"en": "Auto PA calibration image anomaly, printing with default values.",
+"level": 2
+},
+"514": {
+"en": "Auto PA calibration failed, printing with default values.",
+"level": 2
+},
+"515": {
+"en": "Flow ratio calibration image anomaly, printing with default values.",
+"level": 2
+},
+"516": {
+"en": "Flow ratio calibration failed, printing with default values.",
+"level": 2
+},
+"517": {
+"en": "Unknown error",
+"level": null
+},
+"518": {
+"en": "Unknown error",
+"level": null
+},
+"519": {
+"en": "Unknown error",
+"level": null
+},
+"520": {
+"en": "Unknown error",
+"level": null
+},
+"521": {
+"en": "Unknown error",
+"level": null
+},
+"522": {
+"en": "Unknown error",
+"level": null
+},
+"523": {
+"en": "A model warping issue has been detected.",
+"level": 2
+},
+"524": {
+"en": "Unknown error",
+"level": null
+},
+"525": {
+"en": "Unknown error",
+"level": null
+},
+"526": {
+"en": "TF0526: Model fan speed detected to be too low.",
+"level": 2
+},
+"527": {
+"en": "Detected waste chute is block. ",
+"level": 2
+},
+"528": {
+"en": "FO0528: rinter seems to be printing without extruding.",
+"level": 2
+},
+"529": {
+"en": "Nozzle  camera failed to start, try restarting.",
+"level": 2
+},
+"530": {
+"en": "Unknown error",
+"level": null
+},
+"531": {
+"en": "Unknown error",
+"level": null
+},
+"532": {
+"en": "Unknown error",
+"level": null
+},
+"533": {
+"en": "Unknown error",
+"level": null
+},
+"534": {
+"en": "Unknown error",
+"level": null
+},
+"535": {
+"en": "Unknown error",
+"level": null
+},
+"536": {
+"en": "Unknown error",
+"level": null
+},
+"537": {
+"en": "Unknown error",
+"level": null
+},
+"538": {
+"en": "Unknown error",
+"level": null
+},
+"539": {
+"en": "Unknown error",
+"level": null
+},
+"800": {
+"en": "Axis movement error",
+"level": 2
+},
+"801": {
+"en": "Machine preparation",
+"level": 2
+},
+"2001": {
+"en": "System error, try restarting",
+"level": 1
+},
+"2022": {
+"en": "An unknown error was detected in printing",
+"level": null
+},
+"2060": {
+"en": "System error, try restarting",
+"level": 1
+},
+"2093": {
+"en": "System error, try restarting",
+"level": 1
+},
+"2111": {
+"en": "The nozzle temperature is below the minimum extrusion temperature",
+"level": 1
+},
+"2243": {
+"en": "Axis movement exceeded limit",
+"level": 2
+},
+"2340": {
+"en": "Unknown error",
+"level": null
+},
+"2352": {
+"en": "Hotbed failed to return to the maximum Z-axis position or tilt calibration at this position failed,please try again after resolving.",
+"level": 2
+},
+"2355": {
+"en": "MCU task scheduling failed, possibly due to high load or communication issues.",
+"level": 2
+},
+"2357": {
+"en": "Hotbed failed to reach the maximum position. Check for sensor issues or bed tilt.Please check and retry.",
+"level": 2
+},
+"2509": {
+"en": "Unable to obtain nozzle temperature, the thermistor may be disconnected",
+"level": 1
+},
+"2510": {
+"en": "Hotbed thermistor open circuit",
+"level": 1
+},
+"2511": {
+"en": "The chamber thermistor may be open circuit",
+"level": 2
+},
+"2512": {
+"en": "The motherboard temperature is abnormal",
+"level": 1
+},
+"2515": {
+"en": "Nozzle temperature exceeds limit, thermistor may be short-circuited",
+"level": 1
+},
+"2516": {
+"en": "Hotbed thermistor short circuit",
+"level": 1
+},
+"2517": {
+"en": "The chamber thermistor may be short circuit",
+"level": 2
+},
+"2519": {
+"en": "Chamber heater fan abnormal, chamber heating closed.",
+"level": 2
+},
+"2526": {
+"en": "Unknown error",
+"level": null
+},
+"2536": {
+"en": "Unknown error",
+"level": 1
+},
+"2537": {
+"en": "Unknown error",
+"level": 1
+},
+"2559": {
+"en": "Chamber heating issue, please ensure the printer is sealed",
+"level": 2
+},
+"2560": {
+"en": "Unknown error",
+"level": null
+},
+"2561": {
+"en": "Unknown error",
+"level": null
+},
+"2564": {
+"en": "The nozzle is not heating as expected",
+"level": 1
+},
+"2565": {
+"en": "The heat bed is not heating as expected",
+"level": 1
+},
+"2566": {
+"en": "Unknown error",
+"level": 1
+},
+"2567": {
+"en": "Unknown error",
+"level": 1
+},
+"2568": {
+"en": "Unknown error",
+"level": 1
+},
+"2571": {
+"en": "Print file is corrupted",
+"level": 1
+},
+"2573": {
+"en": "X-axis homing abnormality",
+"level": 1
+},
+"2577": {
+"en": "Y-axis homing abnormality",
+"level": 1
+},
+"2581": {
+"en": "Z-axis homing abnormality",
+"level": 1
+},
+"2585": {
+"en": "X-axis print coordinates out of range",
+"level": 1
+},
+"2586": {
+"en": "Y-axis print coordinates out of range",
+"level": 1
+},
+"2587": {
+"en": "Z-axis print coordinates out of range",
+"level": 1
+},
+"2588": {
+"en": "Z Offset Exceeds Limit",
+"level": 1
+},
+"2710": {
+"en": "Belt tension module abnormal.",
+"level": 2
+},
+"2711": {
+"en": "Auto belt tension failure",
+"level": 2
+},
+"2712": {
+"en": "Chamber heater fan abnormal, chamber heating closed.",
+"level": 2
+},
+"2713": {
+"en": "Belt tension module error, left side belt communication line may be connected improperly. ",
+"level": 2
+},
+"2714": {
+"en": "Belt tension module error, right side belt tension module not calibrated, please recalibrate the module.",
+"level": 2
+},
+"2715": {
+"en": "Belt tension module error, left side belt tension module not calibrated, please recalibrate the module. ",
+"level": 2
+},
+"2716": {
+"en": "Belt tension module error, please troubleshoot and try recalibrating. ",
+"level": 2
+},
+"2717": {
+"en": "Belt tension module error, please troubleshoot and try recalibrating. ",
+"level": 2
+},
+"2718": {
+"en": "Belt tension timeout failure, please try retightening or restarting. ",
+"level": 2
+},
+"2719": {
+"en": "Belt tension timeout failure, please try retightening or restarting. ",
+"level": 2
+},
+"2720": {
+"en": "Abnormal belt tensioning module, right belt tensioning module calibration value abnormal, please recalibrate the module.",
+"level": 2
+},
+"2721": {
+"en": "Abnormal belt tensioning module, left belt tensioning module calibration value abnormal, please recalibrate the module.",
+"level": 2
+},
+"2722": {
+"en": "Detection of a low resonance frequency on the X-axis may be due to a loose belt.Continuing the print could affect quality. It's recommended to cancel,check belt tension, and recalibrate.",
+"level": 1
+},
+"2723": {
+"en": "Detection of a low resonance frequency on the Y-axis may be due to a loose belt.Continuing the print could affect quality. It's recommended to cancel,check belt tension, and recalibrate.",
+"level": 1
+},
+"2761": {
+"en": "Unable to read nozzle leveling sensor data, the connection between the nozzle and the motherboard may be loose or disconnected.",
+"level": 1
+},
+"2762": {
+"en": "The nozzle leveling sensor may be damaged or the wiping module may have fallen off. Please check or try restarting.",
+"level": 1
+},
+"2768": {
+"en": "Z-axis homing issue,may have an external disturbance ",
+"level": 1
+},
+"2781": {
+"en": "[Printing] XY Motor: XY motor speed limit exceeded. The motor will be released. Please reduce the print speed or re-slice and print again.Z Motor: Z motor speed limit exceeded. The motor will be released. Please reduce the print speed or re-slice and print again.E Motor: Extruder speed limit exceeded. The motor will be released. Please reduce the print speed or re-slice and print again.[Not Printing] XY Motor: XY motor speed limit exceeded. The motor will be released. Please reduce the XY motor movement speed.Z Motor: Z motor speed limit exceeded. The motor will be released. Please reduce the Z motor movement speed.E Motor: Extruder speed limit exceeded. The motor will be released. Please reduce the extruder movement speed.",
+"level": 1
+},
+"2782": {
+"en": "[X/Y/E/Z1/Z2] step-servo position issue, please try again after resolving",
+"level": 1
+},
+"2783": {
+"en": "[Printing] XY Motor: An obstacle was detected during the extruder's movement. This print has been canceled and the motor is released.Z Motor: An obstacle was detected during the heated bed's movement. This print has been canceled and the motor is released.E Motor: An extrusion anomaly was detected, possibly a clog, tangle, or jam. Printing has been paused.[Not Printing] XY Motorstep-servo: An obstacle was detected during the nozzle's movement. The motor will be released.Z Motor: An obstacle was detected during the heated bed's movement. The motor will be released.E Motor: An extrusion anomaly was detected, possibly a clog, tangle, or jam. The motor will be released.",
+"level": 1
+},
+"2784": {
+"en": "Abnormal resistance in the Y-axis movement direction,  motor released. Fix issue and restart.",
+"level": 2
+},
+"2785": {
+"en": "Abnormal resistance under the hotbed, motor released. Fix issue and restart.",
+"level": 2
+},
+"2786": {
+"en": "Extruder speed limit exceeded. The motor will be released. Please reduce the extruder movement speed.",
+"level": 2
+},
+"2787": {
+"en": "Unknown error",
+"level": 1
+},
+"2788": {
+"en": "[x or y or e] axis servo motor hardware abnormality/[z1 or z2] axis servo motor hardware abnormality, the platform plate will drop",
+"level": 2
+},
+"2789": {
+"en": "Extruder extrusion anomaly, possible clog or blockage. motor released.",
+"level": 2
+},
+"2790": {
+"en": "X Motor: X motor identification error detected. The motor wire may be connected improperly or the motor may be damaged.Y Motor: Y motor identification error detected. The motor wire may be connected improperly or the motor may be damaged.Z1 Motor: Z1 motor identification error detected. The motor wire may be connected improperly or the motor may be damaged.Z2 Motor: Z2 motor identification error detected. The motor wire may be connected improperly or the motor may be damaged.E Motor: Extruder motor identification error detected. The motor wire may be connected improperly or the motor may be damaged.",
+"level": 1
+},
+"2791": {
+"en": "Y motor identification error detected. The motor wire may be connected improperly or the motor may be damaged.",
+"level": 2
+},
+"2792": {
+"en": "Z1 motor identification error detected. The motor wire may be connected improperly or the motor may be damaged.",
+"level": 2
+},
+"2793": {
+"en": "Z2 motor identification error detected. The motor wire may be connected improperly or the motor may be damaged.",
+"level": 2
+},
+"2794": {
+"en": "E motor identification error detected. The motor wire may be connected improperly or the motor may be damaged.",
+"level": 2
+},
+"2797": {
+"en": "Extruder MCU temperature is too high, possibly due to high chamber temperature or delayed cooling of the extruder motherboard.",
+"level": 2
+},
+"2798": {
+"en": "X/Y/Z/E axis step-servo motor initialization error, motor communication line may be connected incorrectly",
+"level": 1
+},
+"2799": {
+"en": "X/Y/Z/E axis step-servo motor initialization error, motor communication line may be connected incorrectly",
+"level": 2
+},
+"2800": {
+"en": "X/Y/Z/E axis step-servo motor initialization error, motor communication line may be connected incorrectly",
+"level": 2
+},
+"2801": {
+"en": "X/Y/Z/E axis step-servo motor initialization error, motor communication line may be connected incorrectly",
+"level": 2
+},
+"2802": {
+"en": "X/Y/Z/E axis step-servo motor initialization error, motor communication line may be connected incorrectly",
+"level": 2
+},
+"2831": {
+"en": "communication issue, please try again after resolving.",
+"level": 1
+},
+"2832": {
+"en": "Retract issue, check for filament or spool jams. Click \"Retry\" after resolving.",
+"level": 1
+},
+"2833": {
+"en": "Feed issue, check for filament or spool jams. Click \"Retry\" after resolving.",
+"level": 1
+},
+"2834": {
+"en": "System error.",
+"level": 2
+},
+"2835": {
+"en": "Feed issue , filament may be stuck from loader to CFS hub. Please resolve the issue and click the \"Retry\" button.",
+"level": 1
+},
+"2836": {
+"en": "Feed issue , filament may be blocked between the CFS hub and extruder filament detector. Please resolve the issue and click \"Retry\" button.",
+"level": 1
+},
+"2837": {
+"en": "Feed issue , filament may be jammed between the extruder sensor and the extruder gear. Please resolve the issue and click the \"Retry\" button.",
+"level": 1
+},
+"2838": {
+"en": "Feed issue , filament may be stuck between the CFS hub sensor and the gear. Please resolve the issue and click the \"Retry\" button.",
+"level": 1
+},
+"2839": {
+"en": "filament runs out, please refill.",
+"level": 1
+},
+"2840": {
+"en": "Command failed, current scenario does not support this command.",
+"level": 2
+},
+"2841": {
+"en": "Cutter issue, cutter might be jammed, please try again after resolving",
+"level": 1
+},
+"2842": {
+"en": "Unknown error",
+"level": null
+},
+"2843": {
+"en": "RFID cannot be read, please manually edit filament",
+"level": 2
+},
+"2844": {
+"en": "PTFE tube may have detached from the pneumatic fitting,  please try again after resolving.",
+"level": 1
+},
+"2845": {
+"en": "Extruder may be clogged. Click \"Retry\" after resolving.",
+"level": 1
+},
+"2846": {
+"en": "The filament buffer signal is abnormal,the buffer may be stuck or the filament may be tangle.",
+"level": 1
+},
+"2847": {
+"en": "Filament may tangled, please try again after resolving",
+"level": 1
+},
+"2848": {
+"en": "filament may be broken in CFS.",
+"level": 1
+},
+"2849": {
+"en": "Retract issue, filament cannot be returned to CFS hub. Please resolve the issue and click the \"Retry\" button.",
+"level": 1
+},
+"2850": {
+"en": "Retract issue, filaments may be inserted into the CFS hub. Remove and click the \"Retry\" button.",
+"level": 1
+},
+"2851": {
+"en": "Retract issue, Filament Buffer failure. Please resolve and click \"Retry\" button.",
+"level": 1
+},
+"2852": {
+"en": "TR2852: Filament detector triggered abnormally, possibly due to an external material rack being used with CFS.",
+"level": 2
+},
+"2853": {
+"en": "CFS temperature and humidity sensor abnormal.",
+"level": 2
+},
+"2854": {
+"en": "TC2854: Filament detected in the extruder, affecting the cutter calibration. Please remove the filament and try again.",
+"level": 1
+},
+"2855": {
+"en": "TC2855: Cutter calibrat failed. Please try again after resolving.",
+"level": 1
+},
+"2856": {
+"en": "TC2856: Cutter issue, the cutter may be jammed or missing. Click \"Retry\" after resolving.",
+"level": 1
+},
+"2857": {
+"en": "CFS feeding motor overload, maybe excessive load or unload resistance or the filament tangled or stuck.",
+"level": 1
+},
+"2858": {
+"en": "FS2858: CFS EEPROM abnormal.",
+"level": 2
+},
+"2859": {
+"en": "FO2859: CFS filament odometry abnormal.",
+"level": 2
+},
+"2860": {
+"en": "FB2860: CFS filament buffer abnormal.",
+"level": 2
+},
+"2861": {
+"en": "FS2861: CFS left RFID board abnormal.",
+"level": 2
+},
+"2862": {
+"en": "FS2862: CFS right RFID board abnormal.",
+"level": 2
+},
+"2863": {
+"en": "TR2858：Retract issue, extruder filament sensor anomaly triggered, filament may have broken inside the extruder.",
+"level": 2
+},
+"2864": {
+"en": "Unknown error",
+"level": 2
+},
+"2865": {
+"en": "Feed issue, filament failed to exit extruder.Please resolve and click 'Retry' button.",
+"level": 2
+},
+"2866": {
+"en": "Cutter not detected.",
+"level": 2
+},
+"2870": {
+"en": "CFS2 {0} {1} chamber heating abnormality detected. {2} drying has stopped! Please check the device status or environment and try again",
+"level": 1
+},
+"2871": {
+"en": "CFS2 {0} {1} chamber heating temperature exceeded the upper limit. {2} drying has stopped! Please check the device and try again",
+"level": 1
+},
+"2872": {
+"en": "CFS2 {0} {1} chamber heating component abnormality detected. {2} drying has stopped! Please check the device and try again",
+"level": 1
+},
+"2873": {
+"en": "CFS2 {0} {1} chamber temperature sensor failure detected. {2} drying has stopped! Please check the device and try again",
+"level": 1
+},
+"2874": {
+"en": "CFS2 {0} {1} chamber fan failure detected. {2} drying has stopped! Please check the device and try again",
+"level": 1
+},
+"2875": {
+"en": "Independent drying power supply disconnected detected. Please check the power status and try again!",
+"level": 1
+},
+"2931": {
+"en": "CFSLite communication issue, try again.",
+"level": 1
+},
+"2934": {
+"en": "Instruction data error, transmission failed.",
+"level": 2
+},
+"2936": {
+"en": "Load error. Extruder filament sensor not triggered; filament not loaded into extruder.",
+"level": 1
+},
+"2937": {
+"en": "Load error. Filament odometry rotation below expected; filament may be jammed between sensor and drive gear.",
+"level": 1
+},
+"2939": {
+"en": "No.{0} filament runs out, please refill.",
+"level": 1
+},
+"2940": {
+"en": "Command failed, current scenario does not support this command.",
+"level": 2
+},
+"2943": {
+"en": "No.1 RFID cannot be read, please manually edit filament",
+"level": 2
+},
+"2944": {
+"en": "Load error. Filament odometry normal, but extruder filament sensor not triggered for long; PTFE tube may be detached.",
+"level": 1
+},
+"2945": {
+"en": "Filament odometry rotation below expected; air printing detected; possible extruder clog.",
+"level": 1
+},
+"2947": {
+"en": "Buffer stays at empty limit; filament may be tangled.",
+"level": 1
+},
+"2949": {
+"en": "Unload error. Filament cannot be returned to CFS hub. Please resolve and retry.",
+"level": 1
+},
+"2952": {
+"en": "TR2952：Filament detector triggered abnormally, filament may have broken inside the extruder or inserted into a spool holder filament.",
+"level": 2
+},
+"2953": {
+"en": "CFSLite temperature and humidity sensor abnormal.",
+"level": 2
+},
+"2958": {
+"en": "CFSLite EEPROM abnormal.",
+"level": 2
+},
+"2961": {
+"en": "CFSLite left RFID board abnormal.",
+"level": 2
+},
+"2962": {
+"en": "CFSLite right RFID board abnormal.",
+"level": 2
+},
+"2963": {
+"en": "Retract issue, extruder filament sensor anomaly triggered, filament may have broken inside the extruder.",
+"level": 1
+},
+"2964": {
+"en": "Load error. Buffer did not reach full limit; filament may be grinding.",
+"level": 1
+},
+"2970": {
+"en": "Unload error. Load/unload motor stalled; filament cannot exit extruder.",
+"level": 1
+},
+"2971": {
+"en": "Preloading error; delivery overdue. Please resolve and retry.",
+"level": 1
+},
+"3001": {
+"en": "System error, try restarting",
+"level": 1
+},
+"3002": {
+"en": "System error, try restarting",
+"level": 1
+},
+"3101": {
+"en": "Instruction data error, transmission failed.",
+"level": 2
+},
+"3103": {
+"en": "Command failed, current scenario does not support this command.",
+"level": 2
+},
+"3119": {
+"en": "Load error. Filament sensor not triggered, filament not loaded into extruder.",
+"level": 1
+},
+"3120": {
+"en": "Load error. Buffer not at full limit; PTFE tube may be detached or filament grinding detected.",
+"level": 1
+},
+"3121": {
+"en": "Load error. Buffer not at empty limit, filament not gripped or clog detected.",
+"level": 1
+},
+"3134": {
+"en": "Unload error. Buffer sensor did not trigger; possible filament grinding.",
+"level": 1
+},
+"3135": {
+"en": "Unload error. Filament sensor remains triggered, filament not unloaded.",
+"level": 1
+},
+"3149": {
+"en": "Filament runs out, please refill.",
+"level": 1
+},
+"3151": {
+"en": "Buffer stays at empty limit, possible filament tangling.",
+"level": 1
+},
+"3152": {
+"en": "TR3152：Filament detector triggered abnormally, filament may have broken inside the extruder or inserted into a spool holder filament.",
+"level": 2
+},
+"3160": {
+"en": "CFSmini communication issue, try again.",
+"level": 2
+},
+"3162": {
+"en": "CFSmini motor issue, try again.",
+"level": 1
+},
+"3202": {
+"en": "Nozzle docking failed. The target nozzle station may be occupied. Please check the station status and try again.",
+"level": 1
+},
+"3203": {
+"en": "Nozzle docking failed. Please check the printhead and nozzle station for anomalies and try again.",
+"level": 1
+},
+"3204": {
+"en": "Nozzle docking failed. Please check the printhead and nozzle station for anomalies and try again.",
+"level": 1
+},
+"3205": {
+"en": "Nozzle pickup failed. No nozzle available at the target station. Please check the station status and try again.",
+"level": 1
+},
+"3206": {
+"en": "Nozzle pickup failed. The nozzle was not grabbed. Please check whether the nozzle is placed correctly and try again.",
+"level": 1
+},
+"3207": {
+"en": "Nozzle pickup failed. Please check the printhead and nozzle station for anomalies and try again.",
+"level": 1
+},
+"3208": {
+"en": "Nozzle pickup failed. Please check whether the nozzle is placed correctly and try again.",
+"level": 1
+},
+"3209": {
+"en": "Extruder clamp mechanism failed to open. Please check whether the clamp mechanism works properly and try again.",
+"level": 1
+},
+"3210": {
+"en": "The current nozzle diameter does not match the print task. Please check the print parameters and try again.",
+"level": 1
+},
+"3211": {
+"en": "Sensor fault detected: extruder filament runout / extruder hall / nozzle rack hall sensor.",
+"level": 1
+},
+"3212": {
+"en": "Motion system restricted. A collision may have occurred!",
+"level": 1
+},
+"3213": {
+"en": "Nozzle calibration failed. Unable to obtain calibration sensor data.",
+"level": 1
+},
+"3214": {
+"en": "Nozzle calibration failed. An anomaly was detected in the detection area. Please make sure the nozzle is properly installed, clean the residue on the nozzle and heatbed surface, and try again.",
+"level": 1
+},
+"3215": {
+"en": "Nozzle calibration failed. Abnormal detection signal. Please clean foreign objects on the heatbed surface, make sure the nozzle is not collided or loose, and try again.",
+"level": 1
+},
+"3216": {
+"en": "Nozzle calibration failed. Abnormal calibration data. Please perform nozzle calibration again.",
+"level": 1
+},
+"3217": {
+"en": "Nozzle calibration failed. Abnormal device movement, unable to complete calibration.",
+"level": 1
+},
+"3221": {
+"en": "Nozzle pickup/drop-off coordinate calibration failed. Please check whether the machine is operating normally, manually mount the nozzle, and try again.",
+"level": 1
+},
+"3231": {
+"en": "CFSNano communication issue, please try again after resolving.",
+"level": 1
+},
+"3234": {
+"en": "Instruction data error, transmission failed.",
+"level": 2
+},
+"3236": {
+"en": "Feed issue, Extruder filament sensor not triggered; filament not loaded into extruder.",
+"level": 1
+},
+"3239": {
+"en": "No.{0} filament slot runs out, please insert filament in time.",
+"level": 1
+},
+"3240": {
+"en": "Command failed, current scenario does not support this command.",
+"level": 2
+},
+"3244": {
+"en": "PTFE tube may have detached from the pneumatic fitting,  please try again after resolving.",
+"level": 1
+},
+"3247": {
+"en": "Filament may tangled, please try again after resolving",
+"level": 1
+},
+"3251": {
+"en": "No.{0} RFID slot reading error, you can manually edit the filament.",
+"level": 2
+},
+"3252": {
+"en": "RFID key error, authentication failed. Please manually edit the filament information.",
+"level": 2
+},
+"3253": {
+"en": "CFS Nano filament runout detection / odometry sensor fault.",
+"level": 1
+},
+"3254": {
+"en": "Extruder filament runout detection anomaly. The nozzle may not be clamped. Please check the nozzle status and try again.",
+"level": 1
+},
+"3255": {
+"en": "Extruder filament runout detection anomaly. Please check whether the filament is broken.",
+"level": 1
+},
+"3256": {
+"en": "Failed to write the filament slot remaining amount.",
+"level": 2
+},
+"3263": {
+"en": "Retract issue, extruder filament sensor anomaly triggered, filament may have broken inside the extruder.",
+"level": 1
+},
+"3266": {
+"en": "Retract issue, the filament may not have been cut. Please resolve the issue and try again.",
+"level": 1
+},
+"3280": {
+"en": "Air printing may have been detected.",
+"level": 1
+},
+"5001": {
+"en": "Belt issue detected, loosen the belt and retry vibration pattern optimization",
+"level": 2
+},
+"5002": {
+"en": "Belt issue detected, tighten the belt and retry vibration pattern optimization",
+"level": 2
+},
+"5003": {
+"en": "Leveling sensor failure",
+"level": 1
+},
+"5007": {
+"en": "Abnormal communication between cutter buffer module and host",
+"level": 1
+},
+"5011": {
+"en": "Abnormal RFID reading, RFID tag failed",
+"level": 1
+},
+"5012": {
+"en": "Abnormal RFID writing, RFID tag invalid",
+"level": 1
+},
+"5013": {
+"en": "The usage frequency of the cutter has reached the lifespan standard.",
+"level": 1
+},
+"5014": {
+"en": "Cutting error at the tip of old material consumables",
+"level": 1
+},
+"5016": {
+"en": "Cutter initialization error",
+"level": 1
+},
+"5017": {
+"en": "Abnormality exists between the buffer and the filament detector of the extruder",
+"level": 1
+},
+"5018": {
+"en": "Currently, the filament retraction during material change is abnormal, and the tip removal process fails to execute.",
+"level": 1
+},
+"5019": {
+"en": "The communication module can interface communication is abnormal",
+"level": 1
+},
+"5020": {
+"en": "Motherboard fan failure",
+"level": 2
+},
+"5021": {
+"en": "Home the XY axes before moving them",
+"level": 2
+},
+"5022": {
+"en": "Home before moving the Z axis",
+"level": 2
+},
+"5023": {
+"en": "The current RFID tag does not match the system. Please use Creality brand tagged consumables or replace with non-tagged consumables",
+"level": 1
+},
+"5024": {
+"en": "Abnormal cutter reset, please handle it promptly",
+"level": 1
+},
+"5026": {
+"en": "Printhead vibration sensor failure",
+"level": 1
+},
+"5027": {
+"en": "File does not exist",
+"level": 2
+},
+"5028": {
+"en": "The current consumables are in a state where they cannot be retracted for material replacement. Please troubleshoot the issue and try again.",
+"level": 1
+},
+"5034": {
+"en": "Cutter displacement failure before cutting the tip of the consumables",
+"level": 1
+},
+"5035": {
+"en": "Pre-loading error, please check if the material tray is jammed",
+"level": 2
+},
+"5036": {
+"en": "The optical axis in the cutter buffer needs maintenance.",
+"level": 2
+},
+"5037": {
+"en": "CFS-C does not support this consumable for now. Please choose supported consumables.",
+"level": 2
+},
+"5038": {
+"en": "Flow calibration is enabled. In the current state, manually feed the material first, then start printing.",
+"level": 2
+},
+"5510": {
+"en": "Heated bed temperature sensor failure",
+"level": 1
+},
+"5511": {
+"en": "Chamber temperature sensor failure",
+"level": 2
+},
+"20010": {
+"en": "Filament runout, printing paused, please refill",
+"level": 2
+},
+"30010": {
+"en": "There is no consumables in the current rack",
+"level": 2
+},
+"953234": {
+"en": "Instruction data error, transmission failed.",
+"level": 2
+}
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Preview — demo</title>
+  <link rel="stylesheet" href="/static/viewer.css">
+  <style>
+    :root { --bg: #0b0d12; --surface: #151922; --border: #262c38; --text: #e8ebf1; --muted: #7f889a; --accent: #4c8dff; color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); font: 14px/1.45 system-ui, sans-serif; }
+    body { display: flex; flex-direction: column; padding: 12px 16px; gap: 10px; }
+    .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .bar input[type=text] { flex: 1; min-width: 180px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text); padding: 7px 10px; }
+    button, .file { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text); padding: 7px 12px; cursor: pointer; font: inherit; }
+    button:hover, .file:hover { border-color: var(--accent); }
+    .file input { display: none; }
+    #status { color: var(--muted); font-size: 12.5px; min-height: 1.4em; }
+    #view { flex: 1; min-height: 320px; border: 1px solid var(--border); border-radius: 10px; }
+    #thumbs { display: flex; gap: 10px; align-items: end; }
+    #thumbs img { background: repeating-conic-gradient(#1c212c 0 25%, #151922 0 50%) 0 0 / 16px 16px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <label class="file">Open .stl / .gcode<input id="file" type="file" accept=".stl,.gcode,.gco,.g"></label>
+    <input id="url" type="text" placeholder="URL of an .stl or .gcode" spellcheck="false">
+    <button id="loadUrl" type="button">Load</button>
+    <button id="snap" type="button">Thumbnail</button>
+  </div>
+  <div id="status"></div>
+  <div id="view"></div>
+  <div id="thumbs"></div>
+
+  <script type="module">
+    import { Viewer } from '/static/viewer.js';
+    const status = document.getElementById('status');
+    const v = new Viewer(document.getElementById('view'), {
+      onProgress: (f) => { status.textContent = `Loading… ${Math.round(f * 100)} %`; },
+    });
+    window.viewer = v;
+    async function run(src, name) {
+      status.textContent = 'Loading…';
+      try {
+        const info = await v.load(src, name);
+        status.textContent = info ? JSON.stringify(info) : '';
+      } catch (e) { status.textContent = 'Error: ' + e.message; console.warn(e); }
+    }
+    document.getElementById('file').addEventListener('change', (e) => { const f = e.target.files[0]; if (f) run(f, f.name); });
+    document.getElementById('loadUrl').addEventListener('click', () => { const u = document.getElementById('url').value.trim(); if (u) run(u, u); });
+    document.getElementById('snap').addEventListener('click', async () => {
+      try {
+        const t = document.getElementById('thumbs'); t.replaceChildren();
+        for (const s of [300, 96]) { const img = new Image(); img.src = await v.snapshot(s); t.append(img); }
+      } catch (e) { status.textContent = 'Error: ' + e.message; }
+    });
+    const q = new URLSearchParams(location.search).get('src');
+    if (q) { document.getElementById('url').value = q; run(q, q); }
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+[project]
+name = "creality-printer-monitor"
+version = "0.1.0"
+description = "Local dashboard and MCP server for Creality OS 3D printers (Hi, K1, K2): live status, cameras, file upload, slicing, print history. No cloud."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "rebenga", email = "sertr4linee@proton.me" }
+]
+keywords = ["creality", "3d-printing", "mcp", "k1", "k2", "creality-hi", "klipper", "dashboard"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: FastAPI",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Printing",
+]
+requires-python = ">=3.12"
+dependencies = [
+    "av>=19.0.1",
+    "fastapi>=0.142.4",
+    "httpx>=0.28.1",
+    "mcp>=2.3.0",
+    "python-multipart>=0.0.32",
+    "uvicorn[standard]>=0.54.0",
+    "websockets>=17.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/catmargiela/creality-printer-monitor"
+Issues = "https://github.com/catmargiela/creality-printer-monitor/issues"
+
+[project.scripts]
+printermonitor = "printermonitor:main"
+printermonitor-mcp = "printermonitor.mcp_server:main"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "printermonitor"

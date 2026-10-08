@@ -1,0 +1,11 @@
+services:
+  printermonitor:
+    build: .
+    # Host networking: needed to scan the LAN for printers and to reach their cameras (WebRTC).
+    network_mode: host
+    environment:
+      # PM_PASSWORD: change-me
+      PM_PORT: "8000"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
