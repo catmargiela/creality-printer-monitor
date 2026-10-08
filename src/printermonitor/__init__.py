@@ -9,7 +9,8 @@ def main() -> None:
     import uvicorn
 
     # Diagnostics: `kill -USR1 <pid>` dumps every thread's stack to stderr.
-    faulthandler.register(signal.SIGUSR1, all_threads=True)
+    if hasattr(signal, "SIGUSR1"):  # not on Windows
+        faulthandler.register(signal.SIGUSR1, all_threads=True)
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     uvicorn.run(

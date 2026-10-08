@@ -17,6 +17,8 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           python-version: ${{ matrix.python }}
+          # The app started below may still hold the cache when the job ends.
+          prune-cache: false
       - run: uv sync --locked
       - name: Import every module
         run: uv run python -c "import printermonitor.server, printermonitor.mcp_server, printermonitor.go2rtc; print('go2rtc asset:', printermonitor.go2rtc.release_asset())"
@@ -28,8 +30,9 @@ jobs:
           PM_PORT: "8765"
         run: |
           uv run printermonitor &
-          for i in $(seq 1 30); do curl -sf http://127.0.0.1:8765/api/printers && break; sleep 1; done
+          for i in $(seq 1 120); do curl -sf http://127.0.0.1:8765/api/printers && break; sleep 1; done
           curl -sf http://127.0.0.1:8765/ > /dev/null
+          curl -sf http://127.0.0.1:8765/api/slicer
       - run: uv build
 
   frontend:
